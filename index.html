@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maths calculator</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="mathsCalc">
+  <script>
+   angular.module('mathsCalc', [])
+     .controller('AdditionController', ['$scope', '$log', function($scope, $log) {
+
+       $scope.$log = $log;
+
+       $scope.check = function ($event) {
+         console.log("Key-press");
+         var keyCode = $event.which || $event.keyCode;
+         if (keyCode === 13) {
+           console.log("checking result");
+           if( $scope.result == $scope.numberOne + $scope.numberTwo) {
+             $scope.resultCorrect = "Correct";
+             $scope.reset();
+           } else {
+             $scope.resultCorrect = "Incorrect";
+           }
+         }
+       };
+
+       $scope.reset = function () {
+         $scope.numberOne = $scope.random();
+         $scope.numberTwo = $scope.random();
+         $scope.result = ""; 
+       };
+
+       $scope.random = function () {
+         return Math.floor((Math.random() * 10) + 1);
+       };
+
+       $scope.reset();
+
+       $log.log("I am $log");
+
+     }]);
+</script>
+<div id="wrapper" class="container">
+  <div class="content" ng-controller="AdditionController">
+    <div class="col-md-1 col-sm-1 col-xs-1">
+       <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+    +
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="numberTwo" ng-disabled="true">
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+    =
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+       <input class="form-control correct ng-valid-required" type="text" name="numberA" ng-model="result" ng-keypress="check($event)">
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-1">
+       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="resultCorrect" ng-disabled="true">
+    </div>
+  </div>
+</div>
+</body>
+</html>

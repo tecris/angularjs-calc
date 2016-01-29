@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+        "express": "^4.13.4"
+    },
+    "description": "Testing maths",
+    "main": "server.js",
+    "name": "angularjs-maths-calculator",
+    "version": "1.0.0"
+}

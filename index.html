@@ -58,23 +58,23 @@
 </div>
 <div id="wrapper" class="container">
   <div class="content" ng-controller="AdditionController">
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
        <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
     +
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="numberTwo" ng-disabled="true">
+    <div class="col-md-1">
+       <input class="form-control correct ng-valid-required" ng-required="true" name="numberB" ng-model="numberTwo" ng-disabled="true">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
     =
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" type="text" name="numberA" ng-model="result" ng-keypress="check($event)">
+    <div class="col-md-1">
+       <input class="form-control correct ng-valid-required" name="answer" ng-model="result" ng-keypress="check($event)">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="resultCorrect" ng-disabled="true">
+    <div class="col-md-1">
+       <input class="form-control correct ng-valid-required" name="display" ng-model="resultCorrect" ng-disabled="true">
     </div>
   </div>
 </div>

@@ -15,22 +15,22 @@
     <div ng-controller="AdditionController">
       <div class="content">
         <div class="row">
-          <div class="col-md-1 col-sm-2 col-xs-1">
+          <div class="col-md-1 col-sm-2 col-xs-4">
             <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
           </div>
-          <div class="col-md-1 col-sm-2 col-xs-1">
+          <div class="col-md-1 col-sm-2 col-xs-4">
             +
           </div>
-          <div class="col-md-1 col-sm-2 col-xs-1">
+          <div class="col-md-1 col-sm-2 col-xs-4">
             <input class="form-control correct ng-valid-required" ng-required="true" name="numberB" ng-model="numberTwo" ng-disabled="true">
           </div>
-          <div class="col-md-1 col-sm-2 col-xs-1">
+          <div class="col-md-1 col-sm-2 col-xs-4">
             =
           </div>
-          <div class="col-md-1 col-sm-2 col-xs-1">
+          <div class="col-md-1 col-sm-2 col-xs-4">
             <input class="form-control correct ng-valid-required" name="answer" ng-model="answer" ng-keypress="check($event)">
           </div>
-          <div class="col-md-2 col-sm-2 col-xs-2" ng-show="showUserFeedback">
+          <div class="col-md-2 col-sm-2 col-xs-4" ng-show="showUserFeedback">
             <input class="form-control correct ng-valid-required" name="feedback" ng-model="feedback" ng-disabled="true">
           </div>
         </div>

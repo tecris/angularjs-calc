@@ -29,6 +29,7 @@
    newExercise.numberTwo = $scope.numberTwo;
    newExercise.answer = $scope.answer;
    $scope.exercises.splice(0, 0, newExercise);
+   $scope.exercises.splice(11, 1);
    console.log($scope.exercises);
   };
 

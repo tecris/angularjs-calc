@@ -13,7 +13,7 @@
    console.log("Key - event");
 
    var keyCode = $event.which || $event.keyCode;
-   if (keyCode === 13) {
+   if (keyCode === 13 && $scope.answer != "") {
    $scope.totalExercises++;
     console.log("Checking answer");
     if ($scope.answer == $scope.numberOne + $scope.numberTwo) {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Maths calculator</title>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-app="mathsCalc">
   <script>
@@ -12,6 +12,7 @@
      .controller('AdditionController', ['$scope', '$log', function($scope, $log) {
 
        $scope.$log = $log;
+       $scope.exercises = [];
 
        $scope.check = function ($event) {
          console.log("Key-press");
@@ -20,17 +21,28 @@
            console.log("checking result");
            if( $scope.result == $scope.numberOne + $scope.numberTwo) {
              $scope.resultCorrect = "Correct";
+             $scope.addExercise();
              $scope.reset();
            } else {
+             $scope.showUserFeedback = true;
              $scope.resultCorrect = "Incorrect";
            }
          }
+       };
+
+       $scope.addExercise = function() {
+         var newExercise ={};
+         newExercise.name= $scope.numberOne;
+         newExercise.title=$scope.numberTwo;
+         $scope.exercises.push(newExercise);
+         console.log( $scope.exercises);
        };
 
        $scope.reset = function () {
          $scope.numberOne = $scope.random();
          $scope.numberTwo = $scope.random();
          $scope.result = ""; 
+         $scope.showUserFeedback = false;
        };
 
        $scope.random = function () {
@@ -43,25 +55,28 @@
 
      }]);
 </script>
+<div class="container">
+  <h1>Basic Maths</h1>
+</div>
 <div id="wrapper" class="container">
   <div class="content" ng-controller="AdditionController">
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
        <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
     +
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="numberTwo" ng-disabled="true">
+    <div class="col-md-1">
+       <input class="form-control correct ng-valid-required" ng-required="true" name="numberB" ng-model="numberTwo" ng-disabled="true">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
+    <div class="col-md-1">
     =
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" type="text" name="numberA" ng-model="result" ng-keypress="check($event)">
+    <div class="col-md-1">
+       <input class="form-control correct ng-valid-required" name="answer" ng-model="result" ng-keypress="check($event)">
     </div>
-    <div class="col-md-1 col-sm-1 col-xs-1">
-       <input class="form-control correct ng-valid-required" ng-required="true" type="text" name="numberA" ng-model="resultCorrect" ng-disabled="true">
+    <div class="col-md-2" ng-show="showUserFeedback">
+       <input class="form-control correct ng-valid-required" name="feedback" ng-model="resultCorrect" ng-disabled="true">
     </div>
   </div>
 </div>

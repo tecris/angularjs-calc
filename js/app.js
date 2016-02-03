@@ -5,6 +5,7 @@
 
   $scope.$log = $log;
   $scope.exercises = [];
+  $scope.historySize = 10;
 
   $scope.check = function($event) {
    console.log("Key-press");
@@ -23,9 +24,11 @@
 
   $scope.addExercise = function() {
    var newExercise = {};
-   newExercise.name = $scope.numberOne;
-   newExercise.title = $scope.numberTwo;
-   $scope.exercises.push(newExercise);
+   newExercise.sign = '+';
+   newExercise.numberOne = $scope.numberOne;
+   newExercise.numberTwo = $scope.numberTwo;
+   newExercise.answer = $scope.answer;
+   $scope.exercises.splice(0, 0, newExercise);
    console.log($scope.exercises);
   };
 

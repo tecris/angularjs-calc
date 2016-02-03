@@ -7,29 +7,58 @@
     <script src="js/app.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body ng-app="mathsBasics">
-    <div class="container">
-      <h1>Basic Maths</h1>
+  <body>
+    <div class="container" ng-app="mathsBasics">
+    <div>
+      <h1>Basic Maths A</h1>
     </div>
-    <div id="wrapper" class="container">
-      <div class="content" ng-controller="AdditionController">
-        <div class="col-md-1">
-          <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
+    <div ng-controller="AdditionController">
+      <div class="content">
+        <div class="row">
+          <div class="col-md-1">
+            <input class="form-control correct ng-valid-required" ng-required="true" name="numberA" ng-model="numberOne" ng-disabled="true">
+          </div>
+          <div class="col-md-1">
+            +
+          </div>
+          <div class="col-md-1">
+            <input class="form-control correct ng-valid-required" ng-required="true" name="numberB" ng-model="numberTwo" ng-disabled="true">
+          </div>
+          <div class="col-md-1">
+            =
+          </div>
+          <div class="col-md-1">
+            <input class="form-control correct ng-valid-required" name="answer" ng-model="answer" ng-keypress="check($event)">
+          </div>
+          <div class="col-md-2" ng-show="showUserFeedback">
+            <input class="form-control correct ng-valid-required" name="feedback" ng-model="feedback" ng-disabled="true">
+          </div>
         </div>
-        <div class="col-md-1">
-          +
-        </div>
-        <div class="col-md-1">
-          <input class="form-control correct ng-valid-required" ng-required="true" name="numberB" ng-model="numberTwo" ng-disabled="true">
-        </div>
-        <div class="col-md-1">
-          =
-        </div>
-        <div class="col-md-1">
-          <input class="form-control correct ng-valid-required" name="answer" ng-model="answer" ng-keypress="check($event)">
-        </div>
-        <div class="col-md-2" ng-show="showUserFeedback">
-          <input class="form-control correct ng-valid-required" name="feedback" ng-model="feedback" ng-disabled="true">
+      </div>
+      <hr/>
+      <hr/>
+      <div class="content">
+        <div class="row">
+          <div ng-repeat="exercise in exercises | limitTo:historySize">
+            <div class="row">
+              <div class="col-md-1">
+                <input class="form-control correct ng-valid-required" name="feedback" ng-model="exercise.numberOne" ng-disabled="true">
+              </div>
+              <div class="col-md-1">
+                +
+              </div>
+              <div class="col-md-1">
+                <input class="form-control correct ng-valid-required" ng-required="true" ng-model="exercise.numberTwo" ng-disabled="true">
+              </div>
+              <div class="col-md-1">
+                =
+              </div>
+              <div class="col-md-1">
+                <input class="form-control correct ng-valid-required" name="answer" ng-model="exercise.answer" ng-disabled="true">
+              </div>
+            </div>
+            <hr/>
+          </div>
         </div>
       </div>
     </div>

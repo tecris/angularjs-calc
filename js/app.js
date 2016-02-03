@@ -10,14 +10,13 @@
    console.log("Key-press");
    var keyCode = $event.which || $event.keyCode;
    if (keyCode === 13) {
-    console.log("checking result");
-    if ($scope.result == $scope.numberOne + $scope.numberTwo) {
-     $scope.resultCorrect = "Correct";
+    console.log("Checking answer");
+    if ($scope.answer == $scope.numberOne + $scope.numberTwo) {
      $scope.addExercise();
      $scope.reset();
     } else {
      $scope.showUserFeedback = true;
-     $scope.resultCorrect = "Incorrect";
+     $scope.feedback = "Incorrect";
     }
    }
   };
@@ -33,7 +32,7 @@
   $scope.reset = function() {
    $scope.numberOne = $scope.random();
    $scope.numberTwo = $scope.random();
-   $scope.result = "";
+   $scope.answer = "";
    $scope.showUserFeedback = false;
   };
 

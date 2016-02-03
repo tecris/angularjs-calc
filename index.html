@@ -24,6 +24,7 @@
              $scope.addExercise();
              $scope.reset();
            } else {
+             $scope.showUserFeedback = true;
              $scope.resultCorrect = "Incorrect";
            }
          }
@@ -41,6 +42,7 @@
          $scope.numberOne = $scope.random();
          $scope.numberTwo = $scope.random();
          $scope.result = ""; 
+         $scope.showUserFeedback = false;
        };
 
        $scope.random = function () {
@@ -73,8 +75,8 @@
     <div class="col-md-1">
        <input class="form-control correct ng-valid-required" name="answer" ng-model="result" ng-keypress="check($event)">
     </div>
-    <div class="col-md-2">
-       <input class="form-control correct ng-valid-required" name="display" ng-model="resultCorrect" ng-disabled="true">
+    <div class="col-md-2" ng-show="showUserFeedback">
+       <input class="form-control correct ng-valid-required" name="feedback" ng-model="resultCorrect" ng-disabled="true">
     </div>
   </div>
 </div>

@@ -6,19 +6,25 @@
   $scope.$log = $log;
   $scope.exercises = [];
   $scope.historySize = 10;
+  $scope.totalExercises = 0;
+  $scope.correctExercises = 0;
 
   $scope.check = function($event) {
-   console.log("Key-press");
+   console.log("Key - event");
+
    var keyCode = $event.which || $event.keyCode;
    if (keyCode === 13) {
+   $scope.totalExercises++;
     console.log("Checking answer");
     if ($scope.answer == $scope.numberOne + $scope.numberTwo) {
+     $scope.correctExercises ++;
      $scope.addExercise();
      $scope.reset();
     } else {
      $scope.showUserFeedback = true;
      $scope.feedback = "Incorrect";
     }
+    $log.log("Total exercises = " + $scope.totalExercises);
    }
   };
 
@@ -46,7 +52,6 @@
 
   $scope.reset();
 
-  $log.log("I am $log");
  }]);
 
 })();

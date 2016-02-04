@@ -8,6 +8,7 @@
   $scope.historySize = 10;
   $scope.totalExercises = 0;
   $scope.correctExercises = 0;
+  $scope.showExercise = true;
 
   $scope.check = function($event) {
    console.log("Key - event");
@@ -23,6 +24,7 @@
     } else {
      $scope.showUserFeedback = true;
      $scope.feedback = "Incorrect";
+     $scope.showExercise = false;
     }
     $log.log("Total exercises = " + $scope.totalExercises);
    }
@@ -43,6 +45,7 @@
    $scope.numberOne = $scope.random();
    $scope.numberTwo = $scope.random();
    $scope.answer = "";
+   $scope.showExercise = true;
    $scope.showUserFeedback = false;
   };
 

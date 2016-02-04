@@ -29,7 +29,7 @@
             =
           </div>
           <div class="col-md-1 col-sm-2 col-xs-4">
-            <input class="form-control correct ng-valid-required" name="answer" ng-model="answer" ng-keypress="check($event)">
+            <input class="form-control correct ng-valid-required" type="text" pattern="[0-9]*" name="answer" ng-model="answer" ng-keypress="check($event)">
           </div>
           <div class="col-md-2 col-sm-2 col-xs-4" ng-show="showUserFeedback">
             <input class="form-control correct ng-valid-required" name="feedback" ng-model="feedback" ng-disabled="true">

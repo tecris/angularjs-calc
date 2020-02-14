@@ -17,7 +17,7 @@
    if (keyCode === 13 && $scope.answer != "") {
    $scope.totalExercises++;
     console.log("Checking answer");
-    if ($scope.answer == $scope.numberOne + $scope.numberTwo) {
+    if ($scope.answer == $scope.numberOne * $scope.numberTwo) {
      $scope.correctExercises ++;
      $scope.addExercise();
      $scope.reset();
@@ -32,7 +32,7 @@
 
   $scope.addExercise = function() {
    var newExercise = {};
-   newExercise.sign = '+';
+   newExercise.sign = '*';
    newExercise.numberOne = $scope.numberOne;
    newExercise.numberTwo = $scope.numberTwo;
    newExercise.answer = $scope.answer;
